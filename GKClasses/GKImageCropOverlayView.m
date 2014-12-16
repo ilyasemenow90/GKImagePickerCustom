@@ -65,10 +65,25 @@
     if (heightSpan > 30 && (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)) {
         
         [[UIColor whiteColor] set];
-        [NSLocalizedString(@"GKImoveAndScale", @"") drawInRect:CGRectMake(10, (height - heightSpan) + (heightSpan / 2 - 20 / 2) , width - 20, 20) 
-                                                   withFont:[UIFont boldSystemFontOfSize:20] 
-                                              lineBreakMode:UILineBreakModeTailTruncation 
-                                                  alignment:UITextAlignmentCenter];
+        
+        UIFont *font = [UIFont boldSystemFontOfSize:20];
+        /// Make a copy of the default paragraph style
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        /// Set line break mode
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        /// Set text alignment
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        
+        NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                      NSParagraphStyleAttributeName: paragraphStyle };
+
+        [NSLocalizedString(@"GKImoveAndScale", @"") drawInRect:CGRectMake(10, (height - heightSpan) + (heightSpan / 2 - 20 / 2) , width - 20, 20)
+                                                withAttributes:attributes];
+        
+//        [NSLocalizedString(@"GKImoveAndScale", @"") drawInRect:CGRectMake(10, (height - heightSpan) + (heightSpan / 2 - 20 / 2) , width - 20, 20) 
+//                                                   withFont:[UIFont boldSystemFontOfSize:20] 
+//                                              lineBreakMode:UILineBreakModeTailTruncation 
+//                                                  alignment:UITextAlignmentCenter];
         
     }
 }
