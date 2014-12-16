@@ -40,8 +40,7 @@
         [self.popoverController presentPopoverFromRect:btn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         
     } else {
-        
-        [self presentModalViewController:self.imagePicker.imagePickerController animated:YES];
+        [self presentViewController:self.imagePicker.imagePickerController animated:YES completion:nil];
         
     }
 }
@@ -58,8 +57,7 @@
         [self.popoverController presentPopoverFromRect:btn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         
     } else {
-        
-        [self presentModalViewController:self.ctr animated:YES];
+        [self presentViewController:self.ctr animated:YES completion:nil];
         
     }
     
@@ -77,8 +75,7 @@
         [self.popoverController presentPopoverFromRect:btn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         
     } else {
-        
-        [self presentModalViewController:self.imagePicker.imagePickerController animated:YES];
+        [self presentViewController:self.imagePicker.imagePickerController animated:YES completion:nil];
         
     }
 }
